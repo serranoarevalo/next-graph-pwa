@@ -1,8 +1,5 @@
-import Link from "next/link";
+import withLayout from "../lib/withLayout";
 
-export default () => (
-  <div>
-    <h1>Index</h1>
-    <Link href={"/about"}>Go to about</Link>
-  </div>
-);
+const Index = () => <h1>Index</h1>;
+
+export default withLayout(Index);
