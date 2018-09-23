@@ -1,2 +1,3 @@
-# next-graph-pwa
-eCommerce Mini Clone Built with NextJS + GraphCMS + PWA 
+# Next Graph PWA
+
+eCommerce Mini Clone Built with NextJS + GraphCMS + PWA
