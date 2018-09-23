@@ -1,0 +1,19 @@
+{
+  "name": "next-graph-pwa",
+  "version": "1.0.0",
+  "description": "eCommerce Mini Clone Built with NextJS + GraphCMS + PWA",
+  "main": "index.js",
+  "repository": "https://github.com/serranoarevalo/next-graph-pwa",
+  "author": "Nicolás Serrano Arévalo <itnico.las.me@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^7.0.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
