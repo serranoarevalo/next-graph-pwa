@@ -1,7 +1,9 @@
 import App, { Container } from "next/app";
 import React from "react";
-import Header from "../components/Header";
 import withApollo from "../lib/withApollo";
+import { Layout } from "antd";
+import Header from "../components/Header";
+const { Footer, Content } = Layout;
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -18,8 +20,10 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Header />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+          <Footer>This is important</Footer>
+        </Layout>
       </Container>
     );
   }

@@ -1,10 +1,19 @@
-import { Switch } from "antd";
+import Head from "next/head";
+import Link from "next/link";
+import Header from "../components/Header";
+import Button from "../components/Button";
 
 const Index = props => (
-  <h1>
-    This will be where we see featured products
-    <Switch defaultChecked onChange={() => console.log("wasuup")} />
-  </h1>
+  <>
+    <Head>
+      <title>Home | Nomad Store</title>
+    </Head>
+    <Header
+      centerColumn={<h4>Nomad Store</h4>}
+      rightColumn={<Button href="/cart" text="Carts" />}
+      leftColumn={<Button href="/search" text="Search" />}
+    />
+  </>
 );
 
 export default Index;
