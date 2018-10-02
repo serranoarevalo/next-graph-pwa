@@ -1,8 +1,9 @@
 import App, { Container } from "next/app";
 import React from "react";
 import Header from "../components/Header";
+import withApollo from "../lib/withApollo";
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -23,3 +24,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withApollo(MyApp);
