@@ -11,6 +11,10 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <title>Awesome Movie App</title>
+          <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.0/antd.min.css"
+          />
         </Head>
         <body>
           <Main />
