@@ -24,7 +24,7 @@ class MyApp extends App {
         <Container>
           <Layout>
             <Component {...pageProps} />
-            <Footer>This is important</Footer>
+            <Footer>&copy; Nomad Store</Footer>
           </Layout>
         </Container>
       </ApolloProvider>
