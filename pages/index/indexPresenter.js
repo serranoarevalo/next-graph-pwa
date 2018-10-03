@@ -29,6 +29,7 @@ export default ({ data }) => (
           data.categories.map(category => (
             <Button
               key={category.id}
+              hrefAs={`/category/${category.id}`}
               href={`/category?id=${category.id}`}
               text={category.name}
             />
