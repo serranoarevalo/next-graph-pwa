@@ -3,6 +3,7 @@ import React from "react";
 import withApollo from "../lib/withApollo";
 import { Layout } from "antd";
 import Header from "../components/Header";
+import { ApolloProvider } from "react-apollo";
 const { Footer, Content } = Layout;
 
 class MyApp extends App {
@@ -17,14 +18,16 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apollo } = this.props;
     return (
-      <Container>
-        <Layout>
-          <Component {...pageProps} />
-          <Footer>This is important</Footer>
-        </Layout>
-      </Container>
+      <ApolloProvider client={apollo}>
+        <Container>
+          <Layout>
+            <Component {...pageProps} />
+            <Footer>This is important</Footer>
+          </Layout>
+        </Container>
+      </ApolloProvider>
     );
   }
 }
