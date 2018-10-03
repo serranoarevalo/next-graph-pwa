@@ -6,7 +6,8 @@ export default ({ centerColumn, rightColumn, leftColumn }) => (
   <Header
     theme="dark"
     style={{
-      backgroundColor: "#F0F2F5"
+      backgroundColor: "#F0F2F5",
+      marginBottom: "25px"
     }}
   >
     <Row>

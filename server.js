@@ -10,6 +10,12 @@ app
   .then(() => {
     const server = express();
 
+    server.get("/category/:name", (req, res) => {
+      const actualPage = "/category";
+      const queryParams = { name: req.params.name };
+      app.render(req, res, actualPage, queryParams);
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });
