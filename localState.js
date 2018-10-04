@@ -6,7 +6,7 @@ export const defaults = {
 
 export const resolvers = {
   Mutation: {
-    addProduct: (_, variables, { cache, getCacheKey }) => {
+    toggleProduct: (_, variables, { cache, getCacheKey }) => {
       const id = getCacheKey({ __typename: "Product", id: variables.id });
       const fragment = gql`
         ${PRODUCT_FRAGMENT}
@@ -21,12 +21,19 @@ export const resolvers = {
       `;
       const { cart } = cache.readQuery({ query: cartQuery });
       const foundProduct = cart.find(aProduct => aProduct.id === product.id);
+      let newCart;
+      let onCart;
       if (foundProduct) {
-        return null;
+        const cleanedCart = cart.filter(aProduct => aProduct.id !== product.id);
+        newCart = cleanedCart;
+        onCart = false;
+      } else {
+        newCart = [...cart, product];
+        onCart = true;
       }
       cache.writeData({
         data: {
-          cart: [...cart, product]
+          cart: newCart
         }
       });
       cache.writeFragment({
@@ -35,7 +42,7 @@ export const resolvers = {
         data: {
           __typename: "Product",
           ...product,
-          onCart: true
+          onCart
         }
       });
       return null;

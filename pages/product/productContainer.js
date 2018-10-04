@@ -16,8 +16,8 @@ class ProductContainer extends React.Component {
       <Query query={PRODUCT_QUERY} variables={{ id }}>
         {({ data }) => (
           <Mutation mutation={ADD_TO_CART} variables={{ id }}>
-            {addToCart => (
-              <ProductPresenter data={data} addToCart={addToCart} />
+            {toggleProduct => (
+              <ProductPresenter data={data} toggleProduct={toggleProduct} />
             )}
           </Mutation>
         )}

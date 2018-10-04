@@ -12,7 +12,7 @@ export const PRODUCT_QUERY = gql`
 `;
 
 export const ADD_TO_CART = gql`
-  mutation addToCart($id: ID!) {
-    addProduct(id: $id) @client
+  mutation toggleProduct($id: ID!) {
+    toggleProduct(id: $id) @client
   }
 `;

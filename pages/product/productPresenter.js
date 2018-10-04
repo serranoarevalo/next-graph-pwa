@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import Button from "../../components/Button";
 import CartButton from "../../components/CartButton";
 
-export default ({ data, addToCart }) => (
+export default ({ data, toggleProduct }) => (
   <>
     <Head>
       <title>{data.product.name} | Nomad Store</title>
@@ -21,11 +21,11 @@ export default ({ data, addToCart }) => (
         <h3>{data.product.detail}</h3>
         <h4>{data.product.description}</h4>
         {data.product.onCart ? (
-          <AntButton type="primary" onClick={addToCart}>
+          <AntButton type="primary" onClick={toggleProduct}>
             Remove from cart
           </AntButton>
         ) : (
-          <AntButton type="primary" onClick={addToCart}>
+          <AntButton type="primary" onClick={toggleProduct}>
             Add to cart($
             {data.product.price})
           </AntButton>
