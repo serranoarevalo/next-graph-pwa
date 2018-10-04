@@ -20,6 +20,12 @@ export const resolvers = {
         }
       `;
       const cartCache = cache.readQuery({ query: cartQuery });
+      const foundProduct = cartCache.cart.find(
+        aProduct => aProduct.id === product.id
+      );
+      if (foundProduct) {
+        return null;
+      }
       cache.writeData({
         data: {
           cart: [...cartCache.cart, product]
