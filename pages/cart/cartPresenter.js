@@ -22,6 +22,20 @@ export default ({ data }) => (
         width: "100%",
         padding: "0 50px"
       }}
-    />
+    >
+      {data &&
+        data.cart &&
+        data.cart.map(product => (
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            subtitle={product.detail}
+            price={product.price}
+            photoUrl={product.photo.url}
+            price={product.price}
+          />
+        ))}
+    </div>
   </>
 );
