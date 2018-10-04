@@ -46,6 +46,7 @@ export default ({ data, searchingBy, updateSearch }) => (
               subtitle={product.detail}
               price={product.price}
               photoUrl={product.photo.url}
+              price={product.price}
             />
           ))}
       </div>

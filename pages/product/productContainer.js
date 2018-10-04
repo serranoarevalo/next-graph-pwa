@@ -1,6 +1,6 @@
 import { withRouter } from "next/router";
-import { Query } from "react-apollo";
-import { PRODUCT_QUERY } from "./productQueries";
+import { Query, Mutation } from "react-apollo";
+import { PRODUCT_QUERY, ADD_TO_CART } from "./productQueries";
 import ProductPresenter from "./productPresenter";
 
 class ProductContainer extends React.Component {
@@ -14,7 +14,13 @@ class ProductContainer extends React.Component {
     const { id } = this.props;
     return (
       <Query query={PRODUCT_QUERY} variables={{ id }}>
-        {({ data }) => <ProductPresenter data={data} />}
+        {({ data }) => (
+          <Mutation mutation={ADD_TO_CART} variables={{ id }}>
+            {addToCart => (
+              <ProductPresenter data={data} addToCart={addToCart} />
+            )}
+          </Mutation>
+        )}
       </Query>
     );
   }

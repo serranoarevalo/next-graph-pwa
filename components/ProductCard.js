@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Card, Icon } from "antd";
 const { Meta } = Card;
 
-export default ({ id, name, subtitle, photoUrl }) => (
+export default ({ id, name, subtitle, photoUrl, price }) => (
   <div style={{ marginBottom: "25px" }}>
     <Link href={`/product?id=${id}`} as={`/product/${id}`}>
       <a>

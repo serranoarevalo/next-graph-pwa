@@ -10,3 +10,9 @@ export const PRODUCT_QUERY = gql`
   }
   ${PRODUCT_FRAGMENT}
 `;
+
+export const ADD_TO_CART = gql`
+  mutation addToCart($id: ID!) {
+    addProduct(id: $id) @client
+  }
+`;

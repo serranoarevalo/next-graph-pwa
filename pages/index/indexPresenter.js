@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
-import { Layout, Row } from "antd";
+import { Layout } from "antd";
 import ProductCard from "../../components/ProductCard";
 const { Content } = Layout;
 
@@ -55,6 +55,7 @@ export default ({ data }) => (
                 subtitle={product.detail}
                 price={product.price}
                 photoUrl={product.photo.url}
+                price={product.price}
               />
             ))}
         </div>
