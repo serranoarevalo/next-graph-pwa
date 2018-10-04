@@ -1,7 +1,10 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
+import { Button as AntButton } from "antd";
 import ProductCard from "../../components/ProductCard";
+
+const reducer = (price, product) => price + product.price;
 
 export default ({ data }) => (
   <>
@@ -36,6 +39,10 @@ export default ({ data }) => (
             price={product.price}
           />
         ))}
+    </div>
+    <div style={{ padding: "0px 50px" }}>
+      <h3>Total price: {data && data.cart && data.cart.reduce(reducer, 0)}</h3>
+      <AntButton>Check out</AntButton>
     </div>
   </>
 );
