@@ -19,19 +19,29 @@ export const resolvers = {
           }
         }
       `;
-      const cartCache = cache.readQuery({ query: cartQuery });
-      const foundProduct = cartCache.cart.find(
-        aProduct => aProduct.id === product.id
-      );
+      const { cart } = cache.readQuery({ query: cartQuery });
+      const foundProduct = cart.find(aProduct => aProduct.id === product.id);
       if (foundProduct) {
         return null;
       }
       cache.writeData({
         data: {
-          cart: [...cartCache.cart, product]
+          cart: [...cart, product]
+        }
+      });
+      cache.writeFragment({
+        id: `Product:${product.id}`,
+        fragment: PRODUCT_FRAGMENT,
+        data: {
+          __typename: "Product",
+          ...product,
+          onCart: true
         }
       });
       return null;
     }
+  },
+  Product: {
+    onCart: () => false
   }
 };

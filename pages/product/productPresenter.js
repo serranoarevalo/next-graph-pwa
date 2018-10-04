@@ -20,10 +20,16 @@ export default ({ data, addToCart }) => (
         <h2>{data.product.name}</h2>
         <h3>{data.product.detail}</h3>
         <h4>{data.product.description}</h4>
-        <AntButton type="primary" onClick={addToCart}>
-          Add to cart($
-          {data.product.price})
-        </AntButton>
+        {data.product.onCart ? (
+          <AntButton type="primary" onClick={addToCart}>
+            Remove from cart
+          </AntButton>
+        ) : (
+          <AntButton type="primary" onClick={addToCart}>
+            Add to cart($
+            {data.product.price})
+          </AntButton>
+        )}
       </div>
       <style jsx>{`
         .product {
