@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { Input } from "antd";
 import ProductCard from "../../components/ProductCard";
+import CartButton from "../../components/CartButton";
 
 export default ({ data, searchingBy, updateSearch }) => (
   <>
@@ -17,7 +18,7 @@ export default ({ data, searchingBy, updateSearch }) => (
             : `Searching by: ${searchingBy}`}
         </h4>
       }
-      rightColumn={<Button href="/cart" text="Cart" />}
+      rightColumn={<CartButton />}
       leftColumn={<Button href="/" text="Home" />}
     />
     <div style={{ padding: "0px 50px" }}>
