@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.2.0/antd.min.css"
           />
+          <link rel="manifest" href="/static/manifest.json" />
         </Head>
         <body>
           <Main />
