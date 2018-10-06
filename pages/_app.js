@@ -18,9 +18,10 @@ class MyApp extends App {
 
   componentDidMount() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").then(function() {
-        console.log("Service Worker Registered");
-      });
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(() => console.log("Service Worker Registered"))
+        .catch(() => console.log("Could not register Service Worker"));
     }
   }
 
