@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Card, Icon } from "antd";
 const { Meta } = Card;
 
+const Text = ({ text }) => <span style={{ color: "black" }}>{text}</span>;
+
 export default ({ id, name, subtitle, photoUrl, price }) => (
   <div style={{ marginBottom: "25px" }}>
     <Link href={`/product?id=${id}`} as={`/product/${id}`}>
@@ -9,9 +11,14 @@ export default ({ id, name, subtitle, photoUrl, price }) => (
         <Card
           hoverable
           actions={[<Icon type="eye" theme="outlined" />]}
-          cover={<img alt="example" src={photoUrl} height={"200px"} />}
+          cover={
+            <img alt="example" src={photoUrl} style={{ overflow: "hidden" }} />
+          }
         >
-          <Meta title={name} description={subtitle} />
+          <Meta
+            title={<Text text={name} />}
+            description={<Text text={subtitle} />}
+          />
         </Card>
       </a>
     </Link>

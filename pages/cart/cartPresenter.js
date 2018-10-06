@@ -42,7 +42,7 @@ export default ({ data }) => (
     </div>
     <div style={{ padding: "0px 50px" }}>
       <h3>Total price: {data && data.cart && data.cart.reduce(reducer, 0)}</h3>
-      <AntButton>Check out</AntButton>
+      <AntButton icon={""}>Check out</AntButton>
     </div>
   </>
 );
